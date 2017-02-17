@@ -1,11 +1,3 @@
-// CS 218 - Provided C++ program
-//	This programs calls assembly language routines.
-
-//  Must ensure g++ compiler is installed:
-//	sudo apt-get install g++
-
-// ***************************************************************************
-
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
@@ -29,15 +21,10 @@ extern "C" void blowfishDecrypt(char []);
 extern "C" void writeX(FILE *, char [], bool);
 
 
-// ***************************************************************
-//  Begin a basic C++ program (does not use any objects).
+
 
 int main(int argc, char* argv[])
 {
-
-// --------------------------------------------------------------------
-//  Declare variables and simple display header
-//	By default, C++ integers are doublewords (32-bits).
 
 	string	bars;
 	bars.append(50,'-');
@@ -49,12 +36,6 @@ int main(int argc, char* argv[])
 	char	keyBuff[KEY_MAX+1];
 
 	xArr[8] = 0;
-
-// --------------------------------------------------------------------
-//  If command line arguments OK
-//	get key from user
-//	generate subkeys (for blowfish initialization)
-//	loop to perform encryption/decryption
 
 	if (getOptions(argc, argv, &encryptFlag,
 				&readFile, &writeFile)) {
@@ -74,10 +55,5 @@ int main(int argc, char* argv[])
 		}
 	}
 
-// --------------------------------------------------------------------
-//  Note, file are closed automatically by OS.
-//  All done...
-
 	return 0;
 }
-
